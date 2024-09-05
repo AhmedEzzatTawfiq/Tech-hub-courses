@@ -39,14 +39,13 @@ const CheckoutForm = ({ amount }) => {
       handleError(submitError);
       return;
     }
-    const res = await fetch("/api/send-email", {
+    const res = await fetch("api/create-intent", {
       method: "POST",
       body: JSON.stringify({
         amount: amount,
       }),
     });
     const clientSecret = await res.json();
-
     const result = await stripe.confirmPayment({
       //`Elements` instance that was used to create the Payment Element
       clientSecret,
@@ -97,16 +96,14 @@ const CheckoutForm = ({ amount }) => {
     });
   };
   return (
-    <Suspense fallback={<div></div>}>
-      <form onSubmit={handleSubmit} className="mt-28 mb-40">
-        <div className="lg:mx-80 md:mx-24 mx-10 mt-12">
+      <form onSubmit={handleSubmit}>
+        <div className="mx-32 md:mx-[320px] mt-12">
           <PaymentElement />
           <button className="w-full p-2 mt-4 text-white rounded-md bg-primary">
             Submit
           </button>
         </div>
       </form>
-    </Suspense>
   );
 };
 

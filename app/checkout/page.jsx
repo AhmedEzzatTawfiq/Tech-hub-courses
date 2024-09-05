@@ -23,11 +23,11 @@ function Checkout() {
 	};
 
 	return (
-		<Suspense fallback={<div></div>}>
+		
 			<Elements stripe={stripePromise} options={options}>
 				<CheckoutForm amount={amount} />
 			</Elements>
-		</Suspense>
+		
 	);
 }
 
