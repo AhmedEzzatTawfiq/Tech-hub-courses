@@ -53,7 +53,7 @@ const CheckoutForm = ({ amount }) => {
       clientSecret,
       elements,
       confirmParams: {
-        return_url: 'https://tech-hub-courses.vercel.app/payment-confirm',
+        return_url: `${window.location.href}/payment-confirm`,
       },
     });
 
