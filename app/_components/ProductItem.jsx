@@ -8,7 +8,7 @@ const ProductItem = ({ product }) => {
   return (
     <Link href={`/product-details/${product?.id}`} className="p-1 rounded-lg hover:border hover:shadow-md border-teal-500 hover:cursor-pointer">
       <Image
-        src={`${imgUrl}${item?.product?.attributes?.banner?.data?.attributes?.url}`}
+        src={`${imgUrl}${product?.attributes?.banner?.data?.attributes?.url}`}
         alt="banner-card"
         width={400}
         height={350}
