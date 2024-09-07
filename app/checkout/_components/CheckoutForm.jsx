@@ -53,7 +53,7 @@ const CheckoutForm = ({ amount }) => {
       clientSecret,
       elements,
       confirmParams: {
-        return_url: process.env.NEXT_PUBLIC_RETURN_URL,
+        return_url: `${window.location.origin}/payment-confirm`,
       },
     });
 
