@@ -8,7 +8,9 @@ import { CartContext } from "../../_context/CartContext";
 import { useUser } from "@clerk/nextjs";
 import OrderApi from "../../_utils/OrderApis";
 import CartApis from "../../_utils/CartApis";
+import { useRouter } from "next/router";
 const CheckoutForm = ({ amount }) => {
+  const router = useRouter();
   const { cart, setCart } = useContext(CartContext);
   const { user } = useUser();
   const stripe = useStripe();
@@ -51,7 +53,7 @@ const CheckoutForm = ({ amount }) => {
       clientSecret,
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/payment-confirm",
+        return_url: process.env.NEXT_PUBLIC_RETURN_URL,
       },
     });
 
