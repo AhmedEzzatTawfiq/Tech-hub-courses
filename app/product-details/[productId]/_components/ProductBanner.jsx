@@ -3,14 +3,12 @@ import Image from 'next/image';
 
 const ProductBanner = ({product}) => {
   const imgUrl = "http://localhost:1337";
-  const srcc = `${product?.attributes?.banner?.data?.attributes?.url}`;
-  const fullSrc = `${imgUrl}${srcc}`;
   return (
     <div>
       {
         product?.attributes?.banner?.data?.attributes?.url ? 
           <Image
-            src={fullSrc} 
+            src={`${imgUrl}${product?.attributes?.banner?.data?.attributes?.url}`}
             alt='product-details-banner' 
             width={400} 
             height={400} 
