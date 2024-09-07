@@ -5,8 +5,6 @@ import Link from "next/link";
 
 const ProductItem = ({ product }) => {
   const imgUrl = "http://localhost:1337";
-  const srcc = `${product?.attributes?.banner?.data?.attributes?.url}`;
-  const srcccc = `${imgUrl}${srcc}`;
   return (
     <Link href={`/product-details/${product?.id}`} className="p-1 rounded-lg hover:border hover:shadow-md border-teal-500 hover:cursor-pointer">
       <Image
